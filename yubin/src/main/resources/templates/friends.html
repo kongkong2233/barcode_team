@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Friends Page</title>
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 18px;
+      text-align: left;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+<h1 th:text="${friendMsg}"></h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>이름</th>
+      <th>이메일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="friend : ${friendList}">
+      <td th:text="${friend.id}"></td>
+      <td th:text="${friend.name}"></td>
+      <td th:text="${friend.email}"></td>
+    </tr>
+  </tbody>
+</table>
+<button onclick="location.href='/addform'">친구 등록</button>
+</body>
+</html>
